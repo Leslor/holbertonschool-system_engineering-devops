@@ -5,7 +5,6 @@ set
 unset
 export
 alias
-unalias
-.
+unali
 source
 prin
