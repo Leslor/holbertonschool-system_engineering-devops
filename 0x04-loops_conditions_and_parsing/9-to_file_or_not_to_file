@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+# This script that displays:
+#The content of the current directory
+#In a list format
+#Where only the part of the name after the first dash is displayed
+
+
+FILE=school
+if test -f "$FILE"
+then  
+	echo "$FILE file exists"
+	if [ -s $FILE ]
+	then
+		echo "school file is empty"
+	else
+		echo "school file is not empty"
+	fi
+	if [ -f $FILE ]
+	then
+		echo "school is a regular file"
+	fi
+else
+	echo "school file does not exist"
+fi
