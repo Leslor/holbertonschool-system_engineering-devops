@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 #script that kill a process
 process=$(pgrep -f 4-to_infinity_and_beyond)
-pkill -15 "$process"
+pkill "$process"
