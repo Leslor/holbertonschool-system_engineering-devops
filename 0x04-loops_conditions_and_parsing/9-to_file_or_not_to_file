@@ -6,19 +6,19 @@
 
 
 FILE=school
-if test -f "$FILE"
+if [ -f "$FILE" ] || [ -d "$FILE" ]
 then  
 	echo "$FILE file exists"
 	if [ -s $FILE ]
 	then
-		echo "school file is empty"
+		echo "$FILE file is empty"
 	else
-		echo "school file is not empty"
+		echo "$FILE file is not empty"
 	fi
 	if [ -f $FILE ]
 	then
-		echo "school is a regular file"
+		echo "$FILE is a regular file"
 	fi
 else
-	echo "school file does not exist"
+	echo "$FILE file does not exist"
 fi
