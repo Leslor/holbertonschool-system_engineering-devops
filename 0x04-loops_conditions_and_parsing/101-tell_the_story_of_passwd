@@ -5,6 +5,6 @@
 #Home directory path for the user
 
 file=/etc/passwd
-while IFS=':' read -r  USERNAME GROUP_ID HOME_DIRECTORY COMMAND USERID PASSWORD USERIDINFO; do
+while IFS=':' read USERNAME GROUP_ID HOME_DIRECTORY COMMAND USERID PASSWORD USERIDINFO; do
 	echo "The user $USERNAME is part of the $GROUP_ID gang, lives in $HOME_DIRECTORY and rides $COMMAND. $USERID's place is protected by the passcode $PASSWORD, more info about the user here: $USERIDINFO"
 done < "$file"
