@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+# Install nginx on the web-01 server
+new_url="https://www.youtube.com/watch?v=QH2-TGUlwu4"
+old_url="server_name _;\n\trewrite ^/redirect_me $new_url permanent;"
+
+sudo apt-get update -y
+sudo apt-get install nginx -y
+sudo ufw allow 'Nginx HTTP'
+echo "Hello World" | sudo tee /var/www/html/index.nginx-debian.html
+sudo sed -i "s/server_name _;/$old_url/" /etc/nginx/sites-available/default
+sudo service nginx restart
