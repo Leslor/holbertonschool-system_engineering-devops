@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+#Solution for debuggin curl: (7) Failed to connect to 0 port 80: Connection refused
+ln -sf /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
+service nginx start
