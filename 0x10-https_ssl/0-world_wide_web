@@ -1,11 +1,18 @@
 #!/usr/bin/env bash
 #Bash script that will display information about subdomains.
 func () {
-	REC_TYP=$(dig www.holberton.online | grep -A1 'ANSWER SECTION:' | awk '{print $4}')
+	REC_TYP=$(dig www.holberton.online | grep -A1 'ANSWER SECTION:' | awk 'NR==2 {print $4}')
 	if [ $# -eq 2 ]; then
 		echo "The subdomain $2 is a $REC_TYP record and points to $(dig "$2.$1" +short)"
 	else
-		for sub_dom in ${!myArray[@]}
-		echo "The subdomain $2 is a [RECORD_TYPE] record and points to $(dig "$2i".$1" +short)"
+		myDomains=("www" "lb-01" "web-01" "web-02")
+		for sub_dom in "${myDomains[@]}"; do
+			echo "The subdomain $sub_dom is a $REC_TYP record and points to $(dig "$sub_dom.$1" +short)"
+		done
 	fi
 }
+if [ $# -eq 1 ]; then
+	func "$1"
+else 
+	func "$1" "$2"
+fi
