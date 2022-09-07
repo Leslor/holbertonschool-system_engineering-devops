@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+### Parameters
+username='root'
+password=$1
+dump_file='backup.sql'
+db_name_backup=$(date +%d-%m-%Y).tar.gz
+### Backup up the database using the following command:
+# mysqldump -u [username] –p[password] [database_name] > [dump_file.sql]
+mysqldump --all-databases -u "$username" -p"$password" > "$dump_file"
+### Package Backup : Comprimir
+tar -czvf "$db_name_backup" "$dump_file"
