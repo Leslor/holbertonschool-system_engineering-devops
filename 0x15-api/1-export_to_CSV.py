@@ -20,11 +20,11 @@ def writecsv():
     TASKS = [(i.get("title"), i.get("completed"))
              for i in response_todos.json()
              if i.get("userId") == USER_ID]
-    data = [[USER_ID, USERNAME, i[0], i[1]] for i in TASKS]
+    data = [[USER_ID, USERNAME, i[1], i[0]] for i in TASKS]
 
     file_name = '{}.csv'.format(USER_ID)
     with open(file_name, 'w') as f:
-        writer = csv.writer(f)
+        writer = csv.writer(f, quoting=csv.QUOTE_ALL)
         writer.writerows(data)
 
 
