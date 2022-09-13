@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-
+"""Python script to export data in the CSV format."""
 import csv
 import requests
 from sys import argv
@@ -21,7 +21,6 @@ def writecsv():
              for i in response_todos.json()
              if i.get("userId") == USER_ID]
     data = [[USER_ID, USERNAME, i[0], i[1]] for i in TASKS]
-    print(data)
 
     file_name = '{}.csv'.format(USER_ID)
     with open(file_name, 'w') as f:

@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-
+"""Python script that, using this REST API, for a given employee ID"""
 import json
 import requests
 from sys import argv
@@ -13,9 +13,8 @@ def writecsv():
     USER_ID = int(argv[1])
 
     response_user = requests.get('{}users'.format(url))
-    USERNAME = [i.get("name") for i in response_user.json()
-                if i.get("id") == USER_ID]
-    USERNAME = USERNAME[0]
+    USERNAME = [i.get("username") for i in response_user.json()
+                if i.get("id") == USER_ID][0]
 
     response_todos = requests.get('{}todos'.format(url))
     TASKS = [(i.get("title"), i.get("completed"))
