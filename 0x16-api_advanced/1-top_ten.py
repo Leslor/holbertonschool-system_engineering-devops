@@ -1,6 +1,6 @@
 #!/usr/bin/python3
-import requests
 """Api Advance """
+import requests
 
 
 def top_ten(subreddit):
