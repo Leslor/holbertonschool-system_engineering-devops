@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 import requests
+"""Api Advance """
 
 
 def top_ten(subreddit):
@@ -16,5 +17,5 @@ def top_ten(subreddit):
         for i in response.get('children'):
             print(i.get('data').get('title'))
     else:
-        print(None)
+        print("None")
         return
