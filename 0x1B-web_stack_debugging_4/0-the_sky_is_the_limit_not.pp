@@ -1,4 +1,6 @@
-exec { 'update the limit':
+# Update the limit of files
+
+exec { 'Update limit':
   command  => 'sed -i "s/15/4096/" /etc/default/nginx; service nginx restart',
   user     => 'root',
   provider => 'shell',
